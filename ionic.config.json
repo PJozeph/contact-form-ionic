@@ -1,0 +1,7 @@
+{
+  "name": "contact-form",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
