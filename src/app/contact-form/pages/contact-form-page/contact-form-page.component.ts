@@ -35,7 +35,6 @@ export class ContactFormPageComponent implements OnInit {
         email: ['', [Validators.email, Validators.required]],
         phoneNumber: ['', [Validators.pattern(/^\+?[0-9]{10,}$/)]],
         message: ['', Validators.required],
-        subject: ['Lets work together', Validators.required],
     });
 
     public onSubmit() {
@@ -45,10 +44,5 @@ export class ContactFormPageComponent implements OnInit {
 
     public clearForm() {
         this.form.reset();
-    }
-
-    public subjectSelect(selectedSubject: any) {
-        const subject = selectedSubject.detail.value;
-        this.form.patchValue({ subject });
     }
 }

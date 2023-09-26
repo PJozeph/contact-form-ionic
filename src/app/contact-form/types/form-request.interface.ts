@@ -4,5 +4,4 @@ export interface FormRequestInterface {
     email: string;
     phoneNumber: string;
     message: string;
-    subject: string;
 }

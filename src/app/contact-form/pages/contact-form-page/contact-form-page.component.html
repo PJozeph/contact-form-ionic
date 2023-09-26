@@ -8,15 +8,17 @@
         ></ion-button>
     </ion-buttons>
     <ion-title class="ion-text-center"> Contact Form </ion-title>
-    <ion-buttons slot="end">
-        <ion-text color="primary">Pallagi József</ion-text>
+    <ion-buttons
+        slot="end"
+        class="ion-padding">
+        <ion-text color="primary">Devlux Lab</ion-text>
     </ion-buttons>
     <ion-progress-bar
         type="indeterminate"
         *ngIf="data.isSubmitting"></ion-progress-bar>
 </ion-toolbar>
 
-<ion-content>
+<ion-content class="ion-padding">
     <form
         [formGroup]="form"
         (ngSubmit)="onSubmit()">
@@ -69,25 +71,6 @@
                             [value]="$any(form)?.controls['phoneNumber'].value">
                             <div slot="label">Phone Number</div>
                         </ion-input>
-                    </ion-item>
-                </ion-col>
-            </ion-row>
-        </ion-grid>
-        <ion-grid>
-            <ion-row>
-                <ion-col
-                    size-md="5"
-                    offset-md="4">
-                    <ion-item>
-                        <ion-select
-                            [value]="$any(form)?.controls['subject'].value"
-                            (ionChange)="subjectSelect($event)"
-                            label="Subject"
-                            placeholder="Select Subject">
-                            <ion-select-option value="Lets work together">Lets work together</ion-select-option>
-                            <ion-select-option value="Create a web app for me">Create a web app for me</ion-select-option>
-                            <ion-select-option value="Let's have a chat">Let's have a chat</ion-select-option>
-                        </ion-select>
                     </ion-item>
                 </ion-col>
             </ion-row>
