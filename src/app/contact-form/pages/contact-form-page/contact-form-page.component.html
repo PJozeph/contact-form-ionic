@@ -7,11 +7,10 @@
                 name="mail-outline"></ion-icon
         ></ion-button>
     </ion-buttons>
-    <ion-title class="ion-text-center"> Contact Form </ion-title>
     <ion-buttons
         slot="end"
         class="ion-padding">
-        <ion-text color="primary">Devlux Lab</ion-text>
+        <ion-text color="primary">Code Code Academy</ion-text>
     </ion-buttons>
     <ion-progress-bar
         type="indeterminate"
@@ -19,6 +18,18 @@
 </ion-toolbar>
 
 <ion-content class="ion-padding">
+    <ion-grid>
+        <ion-row>
+            <ion-col
+                size-md="4"
+                offset-md="4">
+                <div class="code-snippet">
+                    <ion-img src="../../../../assets/code-snipet.png"></ion-img>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
     <form
         [formGroup]="form"
         (ngSubmit)="onSubmit()">
@@ -52,7 +63,7 @@
         <ion-grid>
             <ion-row>
                 <ion-col
-                    size-md="4"
+                    size-md="8"
                     offset-md="2">
                     <ion-item>
                         <ion-input
@@ -60,16 +71,6 @@
                             formControlName="email"
                             [value]="$any(form)?.controls['email'].value">
                             <div slot="label">Email</div>
-                        </ion-input>
-                    </ion-item>
-                </ion-col>
-                <ion-col size-md="4">
-                    <ion-item>
-                        <ion-input
-                            labelPlacement="floating"
-                            formControlName="phoneNumber"
-                            [value]="$any(form)?.controls['phoneNumber'].value">
-                            <div slot="label">Phone Number</div>
                         </ion-input>
                     </ion-item>
                 </ion-col>
@@ -81,10 +82,48 @@
                     size-md="8"
                     offset-md="2">
                     <ion-item>
+                        <ion-input
+                            labelPlacement="floating"
+                            formControlName="phoneNumber"
+                            [value]="$any(form)?.controls['phoneNumber'].value">
+                            <div slot="label">Phone Number (optional)</div>
+                        </ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <ion-grid>
+            <ion-row
+                size-md="8"
+                offset-md="2">
+                <ion-col
+                    size-md="8"
+                    offset-md="2">
+                    <ion-list>
+                        <ion-item>
+                            <ion-select
+                                placeholder="Select Mentoring Type"
+                                [value]="currentMentoringType"
+                                (ionChange)="handleChange($event)">
+                                <!-- <div slot="label">Mentoring Type</div> -->
+                                <ion-select-option value="personalMentoring">Personal Mentoring</ion-select-option>
+                                <ion-select-option value="companyMentoring">Mentoring For Company</ion-select-option>
+                                <ion-select-option value="course">Angular Corse</ion-select-option>
+                            </ion-select>
+                        </ion-item>
+                    </ion-list>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <ion-grid>
+            <ion-row>
+                <ion-col
+                    size-md="8"
+                    offset-md="2">
+                    <ion-item>
                         <ion-textarea
                             formControlName="message"
-                            label="Your Message"
-                            placeholder="Type something here"></ion-textarea>
+                            label="Message (optional)"></ion-textarea>
                     </ion-item>
                 </ion-col>
             </ion-row>
@@ -98,7 +137,7 @@
                         [disabled]="form.invalid"
                         type="submit"
                         color="primary">
-                        Send Message
+                        Send
                     </ion-button>
                     <ion-button
                         (click)="clearForm()"
